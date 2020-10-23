@@ -1,3 +1,5 @@
-mysql/*
 .idea
+mysql/*
 !mysql/.gitkeep
+src/*
+!src/.gitkeep
