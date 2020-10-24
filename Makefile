@@ -1,6 +1,7 @@
 SHELL := /bin/bash
 
 up:
+	source ./laravel_storage_permissions.sh
 	source ./mysql_permisisons.sh
 	docker-compose up -d --build
 
