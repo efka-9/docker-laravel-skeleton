@@ -1,3 +1,5 @@
+SHELL := /bin/bash
+
 up:
 	source ./mysql_permisisons.sh
 	docker-compose up -d --build
