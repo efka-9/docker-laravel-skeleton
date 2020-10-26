@@ -13,7 +13,7 @@ services:
       - ./src:/var/www/html
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
     depends_on: 
-      - php
+      - php-fpm
       - mysql
     networks:
       - laravel
@@ -37,11 +37,11 @@ services:
     networks:
       - laravel
 
-  php: 
+  php-fpm:
     build: 
       context: .
-      dockerfile: Dockerfile
-    container_name: php
+      dockerfile: php-fpm.dockerfile
+    container_name: php-fpm
     volumes:
       - ./src:/var/www/html
     ports:
@@ -89,6 +89,7 @@ services:
       context: .
       dockerfile: cron.dockerfile
     container_name: cron
+    command: /home/run-scheduler.sh
     volumes:
       - ./src:/var/www/html
     networks:
