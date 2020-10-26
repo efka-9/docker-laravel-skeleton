@@ -1,7 +1,7 @@
 SHELL := /bin/bash
 
 up:
-	source ./mysql_permisisons.sh
+	make init-permissions
 	docker-compose up -d --build
 
 down:
@@ -25,3 +25,9 @@ composer-update:
 rerun:
 	make down
 	make up
+
+init-permissions:
+	sudo chown :1337 ./src && sudo chown :1337 ./mysql
+	sudo chmod 775 ./src && sudo chmod 775 ./mysql
+	sudo chmod g+s ./src && sudo chmod g+s ./mysql # all new directories will have 1337 group
+

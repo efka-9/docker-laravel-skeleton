@@ -19,7 +19,9 @@ services:
       - laravel
 
   mysql:
-    image: mysql:5.7.29
+    build:
+      context: .
+      dockerfile: mysql.dockerfile
     container_name: mysql
     restart: unless-stopped
     tty: true
@@ -75,7 +77,7 @@ services:
       context: .
       dockerfile: cron.dockerfile
     container_name: cron
-    command: /home/run-scheduler.sh
+    tty: true
     volumes:
       - ./src:/var/www/html
     networks:
