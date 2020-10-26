@@ -27,7 +27,7 @@ rerun:
 	make up
 
 init-permissions:
-	sudo chown :1337 ./src && sudo chown :1337 ./mysql
-	sudo chmod 775 ./src && sudo chmod 775 ./mysql
+	sudo chown -R :1337 ./src && sudo chown -R :1337 ./mysql
+	sudo chmod -R 775 ./src && sudo chmod -R 775 ./mysql
 	sudo chmod g+s ./src && sudo chmod g+s ./mysql # all new directories will have 1337 group
 
